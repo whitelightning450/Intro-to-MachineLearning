@@ -1,0 +1,30 @@
+name: hyriver
+channels:
+  - conda-forge
+dependencies:
+  - contextily
+  - dataretrieval
+  - geopandas
+  - ipykernel
+  - nbformat
+  - py3dep
+  - pygeohydro
+  - pynhd
+  - pynldas2
+  - python=3.10
+  - pydaymet[version='>=0.13.7']
+  - earthaccess
+  - iprogress
+  - ca-certificates
+  - certifi
+  - openssl
+  - widgetsnbextension
+  - ipywidgets
+  - earthengine-api
+  - geemap
+  - xarray-spatial
+  - pystac-client
+  - planetary-computer
+  - stackstac
+  - odc-stac
+  - imageio
