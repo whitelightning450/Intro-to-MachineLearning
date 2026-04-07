@@ -5,11 +5,9 @@ import geemap
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-
-def initialize_ee(authenticate: bool = False) -> None:
-    if authenticate:
-        ee.Authenticate()
-    ee.Initialize()
+ee.Authenticate()
+ee.Initialize()
+print("Earth Engine initialized successfully.")
 
 
 def get_bbox(bbox):
@@ -21,17 +19,6 @@ def apply_scale_factors(image):
     thermal_bands = image.select("ST_B.*").multiply(0.00341802).add(149.0)
     return image.addBands(optical_bands, None, True).addBands(thermal_bands, None, True)
 
-
-# def mask_landsat_c2_l2(image):
-#     qa = image.select("QA_PIXEL")
-#     mask = (
-#         qa.bitwiseAnd(1 << 1).eq(0)   # dilated cloud
-#         .And(qa.bitwiseAnd(1 << 2).eq(0))  # cirrus
-#         .And(qa.bitwiseAnd(1 << 3).eq(0))  # cloud
-#         .And(qa.bitwiseAnd(1 << 4).eq(0))  # cloud shadow
-#         .And(qa.bitwiseAnd(1 << 5).eq(0))  # snow
-#     )
-#     return image.updateMask(mask)
 
 #making a looser mask
 def mask_landsat_c2_l2(image):
