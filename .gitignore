@@ -210,3 +210,6 @@ __marimo__/
 *.tif
 *.tiff
 *.geotiff
+*.gif
+*.csv
+*.joblib
